@@ -1,8 +1,9 @@
 name: Tugas Akhir Deploy to AWS Beanstalk
+
 on:
   push:
     branches:
-      - "Movie-ReactV2"
+      - "main"
 
 jobs:
   deploy:
