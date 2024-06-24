@@ -34,4 +34,4 @@ jobs:
           version_label: ${{ github.sha }}
           region: ap-southeast-2
           existing_bucket_name: elasticbeanstalk-ap-southeast-2-851725393473
-          deployment_package: deploy.zip
+          deployment_package: nodejs-app-build.zip
