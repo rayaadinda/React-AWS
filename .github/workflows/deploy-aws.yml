@@ -16,7 +16,7 @@ jobs:
         run: zip -r deploy.zip . -x '*.git*'
 
       - name: Deploy to EB
-        uses: actions/aws/beanstalk-deploy@v3
+        uses: actions/aws/beanstalk-deploy@v2
 
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
