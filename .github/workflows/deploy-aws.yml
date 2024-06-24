@@ -10,18 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Generate Deployment package
-        run: zip -r nodejs-app-build.zip .
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git*'
 
       - name: Beanstalk Deploy
         uses: einaregilsson/beanstalk-deploy@v21
@@ -34,4 +26,4 @@ jobs:
           version_label: ${{ github.sha }}
           region: ap-southeast-2
           existing_bucket_name: elasticbeanstalk-ap-southeast-2-851725393473
-          deployment_package: nodejs-app-build.zip
+          deployment_package: deploy.zip
